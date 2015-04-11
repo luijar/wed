@@ -1,8 +1,12 @@
+application: luis-ana
 version: 1
 runtime: python27
 api_version: 1
 threadsafe: true
 
 handlers:
+- url: /res
+  static_dir: res
+
 - url: /.*
   script: helloworld.app
