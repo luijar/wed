@@ -2,10 +2,20 @@
 <html>
 <head>
 	<meta charset=utf-8 />
-	<title>Luis & Ana's Wedding App</title>
+	<title>Luis &amp; Ana's Wedding App</title>
+
+	<link rel="stylesheet" type="text/css" href="/res/css/app.css">
+	<script src="/res/js/require.js"></script>
+	<script src="/res/js/app.js"></script>	
+	<script type="text/javascript">
+		require.config({
+		    baseUrl: "res/js"		    		    
+		  });
+	</script>
 </head>
 <body>
  	<h1>BODY</h1>
  	<a href="{{ url }}">{{ url_linktext }}</a>
+ 	
 </body>
 </html>

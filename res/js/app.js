@@ -1,3 +1,5 @@
-$(document).ready(function () {
-		
+require(['jquery'], function($) {
+	$(document).ready(function () {
+		alert('here');	
+	});	
 });
