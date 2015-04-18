@@ -1,1 +1,1 @@
-# wed
+# Luis & Ana's Wedding App
