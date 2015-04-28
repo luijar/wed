@@ -8,5 +8,17 @@ handlers:
 - url: /
   script: home.app
 
+- url: /about
+  script: about.app
+
+- url: /rsvp
+  script: rsvp.app
+
+- url: /location
+  script: location.app
+
+- url: /directions
+  script: directions.app
+
 - url: /res
   static_dir: res
