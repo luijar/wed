@@ -4,16 +4,61 @@
 	<meta charset=utf-8 />
 	<title>Luis &amp; Ana's Wedding App - Home</title>
 
-	<link rel="stylesheet" type="text/css" href="/res/css/jquery.countdown.css">	
+	<link rel="stylesheet" type="text/css" href="/res/css/jquery.countdown.css">		
+
 	<script src="/res/js/require.js"></script>
 	<script src="/res/js/jquery.js"></script>
 	<script src="/res/js/jquery.plugin.js"></script>
 	<script src="/res/js/jquery.countdown.js"></script>
 	<script src="/res/js/app.js"></script>	
+	
 	<script type="text/javascript">
 		require.config({
 		    baseUrl: "res/js"		    		    
-		  });
+		});
+		
+		$(window).load(function() { //start after HTML, images have loaded
+ 
+    var InfiniteRotator =
+    {
+        init: function()
+        {
+            //initial fade-in time (in milliseconds)
+            var initialFadeIn = 1000;
+ 
+            //interval between items (in milliseconds)
+            var itemInterval = 5000;
+ 
+            //cross-fade time (in milliseconds)
+            var fadeTime = 2500;
+ 
+            //count number of items
+            var numberOfItems = $('.rotating-item').length;
+ 
+            //set current item
+            var currentItem = 0;
+ 
+            //show first item
+            $('.rotating-item').eq(currentItem).fadeIn(initialFadeIn);
+ 
+            //loop through the items
+            var infiniteLoop = setInterval(function(){
+                $('.rotating-item').eq(currentItem).fadeOut(fadeTime);
+ 
+                if(currentItem == numberOfItems -1){
+                    currentItem = 0;
+                }else{
+                    currentItem++;
+                }
+                $('.rotating-item').eq(currentItem).fadeIn(fadeTime);
+ 
+            }, itemInterval);
+        }
+    };
+ 
+    InfiniteRotator.init();
+ 
+});
 	</script>
 	<style>
 		h1 {
@@ -58,7 +103,18 @@
 		li {
 		    display: inline;
 		}	
-
+		#rotating-item-wrapper {
+		    position: relative;
+		    width: 980px;
+		    height: 347px;
+		    padding: 80px 80px 80px 80px;		    
+		}
+		.rotating-item {
+		    display: none;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		}			
 	</style>
 </head>
 <body> 	 	
@@ -78,12 +134,18 @@
 		<h1>Luis &amp; Ana's Wedding</h1>
 	</div>
 
-	<div align="center">		
-		<img src="/res/img/main_img.jpg" width="500" height="500" align="middle"/>
-	</div>
+	<div id="rotating-item-wrapper">		
+			<img class="rotating-item" src="/res/img/main_img.jpg" width="500" height="500" align="middle"/>
+			<img class="rotating-item" src="/res/img/std.jpg" width="500" height="500" align="middle"/>		
+			<img class="rotating-item" src="/res/img/imandef.jpg" width="500" height="500" align="middle"/>	
+	</div>			
+	
+	<p style="font-family: cursive; padding: 10px 10px 10px 10px; text-align:center">
+		Save the date!!! 07/01/2016
+	</p>
 
 	<p style="font-family: cursive; padding: 10px 10px 10px 10px; text-align:center">
-		Coming to a theater neear you in ...
+		Coming to a theater near you in ...
 	</p>
 	<div align="center" style="padding: 10px 10px 10px 10px;">
 		<div id="defaultCountdown" style="height:45px; width:50% !important;"/>			 	
