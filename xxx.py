@@ -4,7 +4,7 @@ import logging
 from google.appengine.api import users
 from google.appengine.ext.webapp import template
 
-class Directions(webapp2.RequestHandler):
+class Honeymoon(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
 
@@ -24,4 +24,4 @@ class Directions(webapp2.RequestHandler):
     	path = os.path.join(os.path.dirname(__file__), 'tmp/xxx.html')    	    	
     	self.response.write(template.render(path, template_values))		
 
-app = webapp2.WSGIApplication([('/xxx', Directions),], debug=True)
+app = webapp2.WSGIApplication([('/xxx', Honeymoon),('/xxx/es', Honeymoon)], debug=True)

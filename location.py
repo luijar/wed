@@ -24,4 +24,4 @@ class Location(webapp2.RequestHandler):
     	path = os.path.join(os.path.dirname(__file__), 'tmp/location.html')    	    	
     	self.response.write(template.render(path, template_values))		
 
-app = webapp2.WSGIApplication([('/location', Location),], debug=True)
+app = webapp2.WSGIApplication([('/location', Location),('/location/es', Location)], debug=True)

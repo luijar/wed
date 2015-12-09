@@ -42,4 +42,4 @@ class RSVP(webapp2.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'tmp/confirm.html')             
         self.response.write(template.render(path, template_values))     
 
-app = webapp2.WSGIApplication([('/rsvp', RSVP),], debug=True)
+app = webapp2.WSGIApplication([('/rsvp', RSVP),('/rsvp/es', RSVP)], debug=True)

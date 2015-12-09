@@ -8,16 +8,16 @@ handlers:
 - url: /(es)?
   script: home.app
 
-- url: /about
+- url: /about/(es)?
   script: about.app
 
-- url: /rsvp
+- url: /rsvp/(es)?
   script: rsvp.app
 
-- url: /location
+- url: /location/(es)?
   script: location.app
 
-- url: /directions
+- url: /directions/(es)?
   script: directions.app
 
 - url: /xxx

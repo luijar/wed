@@ -24,4 +24,4 @@ class About(webapp2.RequestHandler):
     	path = os.path.join(os.path.dirname(__file__), 'tmp/about.html')    	    	
     	self.response.write(template.render(path, template_values))		
 
-app = webapp2.WSGIApplication([('/about', About),], debug=True)
+app = webapp2.WSGIApplication([('/about', About),('/about/es', About)], debug=True)

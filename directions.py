@@ -24,4 +24,4 @@ class Directions(webapp2.RequestHandler):
     	path = os.path.join(os.path.dirname(__file__), 'tmp/directions.html')    	    	
     	self.response.write(template.render(path, template_values))		
 
-app = webapp2.WSGIApplication([('/directions', Directions),], debug=True)
+app = webapp2.WSGIApplication([('/directions', Directions),('/directions/es', Directions)], debug=True)
