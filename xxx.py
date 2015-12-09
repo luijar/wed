@@ -4,7 +4,7 @@ import logging
 from google.appengine.api import users
 from google.appengine.ext.webapp import template
 
-class Home(webapp2.RequestHandler):
+class Directions(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
 
@@ -21,11 +21,7 @@ class Home(webapp2.RequestHandler):
     		'url_linktext': url_linktext
     		}
     	
-        template_path = 'tmp/home.html'
-        if 'es' in self.request.url:
-            template_path = 'tmp/home-es.html'
-
-    	path = os.path.join(os.path.dirname(__file__), template_path)    	    	
+    	path = os.path.join(os.path.dirname(__file__), 'tmp/xxx.html')    	    	
     	self.response.write(template.render(path, template_values))		
 
-app = webapp2.WSGIApplication([('/', Home), ('/es', Home),], debug=True)
+app = webapp2.WSGIApplication([('/xxx', Directions),], debug=True)

@@ -2,10 +2,10 @@ application: luis-ana
 version: 1
 runtime: python27
 api_version: 1
-threadsafe: false
+threadsafe: true
 
 handlers:
-- url: /
+- url: /(es)?
   script: home.app
 
 - url: /about
@@ -20,5 +20,16 @@ handlers:
 - url: /directions
   script: directions.app
 
+- url: /xxx
+  script: xxx.app
+
 - url: /res
   static_dir: res
+
+# All other URLs use the WSGI application named in "app" in not_found.py.
+- url: /.*
+  script: home.app
+
+libraries:
+- name: webapp2
+  version: latest
