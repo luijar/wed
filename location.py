@@ -20,8 +20,12 @@ class Location(webapp2.RequestHandler):
     		'url': url,
     		'url_linktext': url_linktext
     		}
-    	
-    	path = os.path.join(os.path.dirname(__file__), 'tmp/location.html')    	    	
+
+        template_path = 'tmp/location.html'
+        if 'es' in self.request.url:
+            template_path = 'tmp/location-es.html'
+
+    	path = os.path.join(os.path.dirname(__file__), template_path)    	    	
     	self.response.write(template.render(path, template_values))		
 
 app = webapp2.WSGIApplication([('/location', Location),('/location/es', Location)], debug=True)

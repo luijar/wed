@@ -24,7 +24,11 @@ class RSVP(webapp2.RequestHandler):
     		'url_linktext': url_linktext
     		}
     	
-    	path = os.path.join(os.path.dirname(__file__), 'tmp/rsvp.html')    	    	
+        template_path = 'tmp/rsvp.html'
+        if 'es' in self.request.url:
+            template_path = 'tmp/rsvp-es.html'
+
+    	path = os.path.join(os.path.dirname(__file__), template_path)    	    	
     	self.response.write(template.render(path, template_values))		
     
     def post(self):      
@@ -53,7 +57,11 @@ class RSVP(webapp2.RequestHandler):
                 
             g.put()
 
-        path = os.path.join(os.path.dirname(__file__), 'tmp/confirm.html')             
+        template_path = 'tmp/confirm.html'
+        if 'es' in self.request.url:
+            template_path = 'tmp/confirm-es.html'
+
+        path = os.path.join(os.path.dirname(__file__), template_path)             
         self.response.write(template.render(path, template_values))     
 
 app = webapp2.WSGIApplication([('/rsvp', RSVP),('/rsvp/es', RSVP)], debug=True)
