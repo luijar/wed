@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Luis &amp; Ana's Wedding App - Home</title>
+	<link rel='shortcut icon' href='/res/img/favicon.ico' type='image/x-icon'/>
+	<link rel="stylesheet" type="text/css" href="/res/css/jquery.countdown.css">		
+
+	<script src="/res/js/require.js"></script>
+	<script src="/res/js/jquery.js"></script>
+	<script src="/res/js/jquery.plugin.js"></script>
+	<script src="/res/js/jquery.countdown.js"></script>
+	<script src="/res/js/app.js"></script>	
+	
+	<script type="text/javascript">
+		require.config({
+		    baseUrl: "res/js"		    		    
+		});
+		
+		$(window).load(function() { //start after HTML, images have loaded
+ 
+    var InfiniteRotator =
+    {
+        init: function()
+        {
+            //initial fade-in time (in milliseconds)
+            var initialFadeIn = 1000;
+ 
+            //interval between items (in milliseconds)
+            var itemInterval = 5000;
+ 
+            //cross-fade time (in milliseconds)
+            var fadeTime = 2500;
+ 
+            //count number of items
+            var numberOfItems = $('.rotating-item').length;
+ 
+            //set current item
+            var currentItem = 0;
+ 
+            //show first item
+            $('.rotating-item').eq(currentItem).fadeIn(initialFadeIn);
+ 
+            //loop through the items
+            var infiniteLoop = setInterval(function(){
+                $('.rotating-item').eq(currentItem).fadeOut(fadeTime);
+ 
+                if(currentItem == numberOfItems -1){
+                    currentItem = 0;
+                }else{
+                    currentItem++;
+                }
+                $('.rotating-item').eq(currentItem).fadeIn(fadeTime);
+ 
+            }, itemInterval);
+        }
+    };
+ 
+    InfiniteRotator.init();
+ 
+});
+	</script>
+	<style>
+		h1 {
+			font-family: cursive;
+			font-size: 50px;
+			font-style: normal;
+			font-variant: normal;
+			font-weight: 500;
+			line-height: 26.3999996185303px;			
+  			text-rendering: optimizeLegibility;
+  			text-shadow: -2px 2px 3px #ffb6c1;
+		}		
+		h3 {
+			font-family: cursive;
+			font-size: 14px;
+			font-style: normal;
+			font-variant: normal;
+			font-weight: 500;
+			line-height: 15.3999996185303px;
+		}	
+		ul {
+		    float: left;
+		    width: 100%;
+		    padding: 0;
+		    margin: 0;
+		    list-style-type: none;
+		}
+
+		a {
+		    float: left;
+		    width: 6em;
+		    text-decoration: none;
+		    color: black;		    
+		    padding: 0.2em 0.6em;
+		    border-right: 1px solid white;
+		}
+
+		a:hover {
+		    background-color: #ffb6c1;
+		}
+
+		li {
+		    display: inline;
+		}	
+		#rotating-item-wrapper {		    
+		    position: relative;
+		     width: 26%;
+    margin: 0 auto;
+		    /*width: 980px;*/
+		    height: 347px;
+		    padding: 80px 80px 80px 80px;		    
+		}
+		.rotating-item {
+		    display: none;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		}			
+	</style>
+</head>
+<body> 	 	
+
+	<div align="center">
+		<ul>
+		  <!-- <li><a style="font-family: cursive;" href="/about">About</a></li> -->
+		  <li><a style="font-family: cursive; font-size:20px" href="/rsvp">RSVP</a></li>
+		  <!-- <li><a style="font-family: cursive;" href="/location">Location</a></li> -->
+		  <!-- <li><a style="font-family: cursive;" href="/directions">Directions</a></li> -->
+		</ul>
+	</div>
+	
+	<br/>
+
+	<div id="main_header" align="center">
+		<h1>Luis &amp; Ana's Wedding</h1>
+	</div>
+
+<div id="outer" style="width:100%"> 
+	<div id="rotating-item-wrapper" align="center">		
+			<img class="rotating-item" src="/res/img/main_img.jpg" width="500" height="500" align="center"/>
+			<img class="rotating-item" src="/res/img/std.jpg" width="500" height="500" align="center"/>		
+			<img class="rotating-item" src="/res/img/imandef.jpg" width="500" height="500" align="center"/>	
+	</div>			
+</div>
+	
+	
+	<p style="font-size:32px !important;font-family: cursive; padding: 10px 10px 10px 10px; text-align:center">
+		Save the date!!! 07/01/2016
+	</p>
+
+	<p style="font-family: cursive; padding: 10px 10px 10px 10px; text-align:center">
+		Coming to a theater near you in ...
+	</p>
+	<div align="center" style="padding: 10px 10px 10px 10px;">
+		<div id="defaultCountdown" style="height:45px; width:50% !important;"/>			 	
+	</div>		
+</body>
+</html>
